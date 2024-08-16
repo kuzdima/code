@@ -1,4 +1,4 @@
-javascript:(function(){
+function(){
     const input = prompt("Введите данные в формате: rowId1,comment1;rowId2,comment2");
     if (input) {
         const data = input.split(';').map(item => {
@@ -48,4 +48,4 @@ javascript:(function(){
         }
         processNext();
     }
-})();
+}();
