@@ -21,7 +21,7 @@ javascript:(function(){
                 if (markerBtn) {
                     markerBtn.click();
                     setTimeout(() => {
-                        const markerDropdown = findElem('#__BVID__4652___BV_modal_body_ > div > div.row > div.col-12.mt-4.aa > div:nth-child(2) > div.multiselect.marker-list-select.mt-3 > div.multiselect__select');
+                        const markerDropdown = findElem('.multiselect.marker-list-select.mt-3 .multiselect__select');
                         if (markerDropdown) {
                             markerDropdown.click();
                             setTimeout(() => {
@@ -30,17 +30,27 @@ javascript:(function(){
                                 if (agreeOption) {
                                     agreeOption.click();
                                     setTimeout(() => {
-                                        const confirmBtn = findElem('#__BVID__4652___BV_modal_body_ > div > div:nth-child(2) > div > button');
+                                        const confirmBtn = findElem('button.btn.button.button-primary.btn-secondary');
                                         if (confirmBtn) {
                                             confirmBtn.click();
-                                            setTimeout(() => processNext(), 2000);
+                                            setTimeout(processNext, 3000);
+                                        } else {
+                                            console.error('Кнопка "Подтвердить" не найдена');
                                         }
-                                    }, 1000);
+                                    }, 1500);
+                                } else {
+                                    console.error('Опция "Согласование" не найдена');
                                 }
-                            }, 1000);
+                            }, 1500);
+                        } else {
+                            console.error('Выпадающий список маркеров не найден');
                         }
-                    }, 1000);
+                    }, 1500);
+                } else {
+                    console.error('Кнопка маркера не найдена');
                 }
+            } else {
+                console.error('Элемент строки не найден');
             }
         };
 
@@ -59,10 +69,14 @@ javascript:(function(){
                             findExcludeBtn(btn)?.click();
                             changeMarker(btn.dataset.row_id);
                             highlight(btn.closest('div'));
-                        }, 1000);
+                        }, 2000);
+                    } else {
+                        console.error('Кнопка отправки комментария не найдена');
                     }
+                } else {
+                    console.error('Текстовое поле комментария не найдено');
                 }
-            }, 1000);
+            }, 2000);
         };
 
         let index = 0;
