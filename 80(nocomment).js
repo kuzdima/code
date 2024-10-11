@@ -31,7 +31,7 @@ javascript:(function() {
                             markerDropdown.click();
                             setTimeout(() => {
                                 const requestInvoiceOption = [...document.querySelectorAll('.multiselect__option')]
-                                    .find(option => option.textContent.includes('Счет запрошен'));
+                                    .find(option => option.textContent.includes('СЧ ЗАПРОШЕН'));
                                 
                                 if (requestInvoiceOption) {
                                     requestInvoiceOption.click();
