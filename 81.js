@@ -20,7 +20,7 @@
             const rowElem = findChatBtn(id);
             
             if (rowElem) {
-                const markerBtn = rowElem.closest('.tr')?.querySelector('button.app-canban-card-item__marker');
+                const markerBtn = rowElem.closest('.tr')?.querySelector('btn app-canban-card-item__marker');
                 
                 if (markerBtn) {
                     markerBtn.click();
